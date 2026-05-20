@@ -3,8 +3,17 @@ from app.models.product import Product
 from app.schemas.product import ProductCreate, ProductUpdate
 
 
-def get_products(db: Session, skip: int = 0, limit: int = 20):
-    return db.query(Product).filter(Product.is_active == True).offset(skip).limit(limit).all()
+def get_products(db: Session, skip: int = 0, limit: int = 20, search: str = None, min_price: float = None, max_price: float = None):
+    query = db.query(Product).filter(Product.is_active == True)
+
+    if search:
+        query = query.filter(Product.name.ilike(f"%{search}%"))
+    if min_price is not None:
+        query = query.filter(Product.price >= min_price)
+    if max_price is not None:
+        query = query.filter(Product.price <= max_price)
+
+    return query.offset(skip).limit(limit).all()
 
 
 def get_product(db: Session, product_id: int):

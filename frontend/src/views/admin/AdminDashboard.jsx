@@ -35,111 +35,98 @@ export default function AdminDashboard() {
   };
 
   return (
-    <div style={{ padding: '20px', maxWidth: '1200px', margin: '0 auto', textAlign: 'left', fontFamily: 'var(--sans)' }}>
+    <div className="admin-container">
       
-      <h1 style={{ fontSize: '32px', margin: '20px 0', borderBottom: '2px solid var(--border)', paddingBottom: '10px' }}>
+      <h1 className="admin-title">
         📊 Panel de Administración
       </h1>
 
       {/* CONTENEDOR EN DOS COLUMNAS */}
-      <div style={{ display: 'flex', gap: '30px', flexWrap: 'wrap', marginTop: '20px' }}>
+      <div className="admin-layout">
         
         {/* COLUMNA IZQUIERDA: FORMULARIO */}
-        <div style={{ flex: '1', minWidth: '300px', background: '#fff', padding: '20px', borderRadius: '8px', border: '1px solid var(--border)', height: 'fit-content' }}>
-          <h2 style={{ fontSize: '20px', marginBottom: '15px' }}>Añadir Nuevo Producto</h2>
+        <div className="admin-card-left">
+          <h2 className="card-title">Añadir Nuevo Producto</h2>
           
-          <form onSubmit={handleGuardar} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+          <form onSubmit={handleGuardar} className="admin-form">
             <div>
-              <label style={{ display: 'block', fontSize: '14px', marginBottom: '5px', fontWeight: '500' }}>Nombre del Producto</label>
+              <label className="form-label">Nombre del Producto</label>
               <input 
                 type="text" 
                 value={nombre}
                 onChange={(e) => setNombre(e.target.value)}
                 placeholder="Ej. Sudadera"
-                style={{ width: '100%', padding: '8px', border: '1px solid var(--border)', borderRadius: '6px', boxSizing: 'border-box' }}
+                className="form-input"
                 required
               />
             </div>
 
             <div>
-              <label style={{ display: 'block', fontSize: '14px', marginBottom: '5px', fontWeight: '500' }}>Precio (€)</label>
+              <label className="form-label">Precio (€)</label>
               <input 
                 type="number" 
                 step="0.01"
                 value={precio}
                 onChange={(e) => setPrecio(e.target.value)}
                 placeholder="29.99"
-                style={{ width: '100%', padding: '8px', border: '1px solid var(--border)', borderRadius: '6px', boxSizing: 'border-box' }}
+                className="form-input"
                 required
               />
             </div>
 
             <div>
-              <label style={{ display: 'block', fontSize: '14px', marginBottom: '5px', fontWeight: '500' }}>Stock Inicial</label>
+              <label className="form-label">Stock Inicial</label>
               <input 
                 type="number" 
                 value={stock}
                 onChange={(e) => setStock(e.target.value)}
                 placeholder="10"
-                style={{ width: '100%', padding: '8px', border: '1px solid var(--border)', borderRadius: '6px', boxSizing: 'border-box' }}
+                className="form-input"
               />
             </div>
 
-            {/* NUEVO CAMPO: SELECCIÓN DE IMAGEN */}
             <div>
-              <label style={{ display: 'block', fontSize: '14px', marginBottom: '5px', fontWeight: '500' }}>Imagen del Producto</label>
+              <label className="form-label">Imagen del Producto</label>
               <input 
                 type="file" 
                 accept="image/*"
                 onChange={(e) => setImagen(e.target.files[0])}
-                style={{ 
-                  width: '100%', 
-                  padding: '8px', 
-                  border: '1px dashed var(--border)', 
-                  borderRadius: '6px', 
-                  boxSizing: 'border-box',
-                  background: 'var(--code-bg)',
-                  cursor: 'pointer'
-                }} 
+                className="form-input-file" 
               />
             </div>
 
-            <button 
-              type="submit" 
-              style={{ background: 'var(--accent)', color: '#fff', border: 'none', padding: '10px', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold', marginTop: '10px' }}
-            >
+            <button type="submit" className="btn-submit">
               Guardar Producto
             </button>
           </form>
         </div>
 
         {/* COLUMNA DERECHA: TABLA */}
-        <div style={{ flex: '2', minWidth: '400px', background: '#fff', padding: '20px', borderRadius: '8px', border: '1px solid var(--border)' }}>
-          <h2 style={{ fontSize: '20px', marginBottom: '15px' }}>Inventario de Productos</h2>
+        <div className="admin-card-right">
+          <h2 className="card-title">Inventario de Productos</h2>
           
-          <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
+          <table className="admin-table">
             <thead>
-              <tr style={{ background: 'var(--code-bg)', borderBottom: '2px solid var(--border)' }}>
-                <th style={{ padding: '10px' }}>ID</th>
-                <th style={{ padding: '10px' }}>Nombre</th>
-                <th style={{ padding: '10px' }}>Precio</th>
-                <th style={{ padding: '10px' }}>Stock</th>
-                <th style={{ padding: '10px' }}>Archivo Imagen</th>
+              <tr className="table-header-row">
+                <th className="table-th">ID</th>
+                <th className="table-th">Nombre</th>
+                <th className="table-th">Precio</th>
+                <th className="table-th">Stock</th>
+                <th className="table-th">Archivo Imagen</th>
               </tr>
             </thead>
             <tbody>
               {productos.map((prod) => (
-                <tr key={prod.id} style={{ borderBottom: '1px solid var(--border)' }}>
-                  <td style={{ padding: '12px', fontFamily: 'var(--mono)', fontSize: '14px' }}>{prod.id}</td>
-                  <td style={{ padding: '12px', fontWeight: '500' }}>{prod.nombre}</td>
-                  <td style={{ padding: '12px', color: 'green', fontWeight: 'bold' }}>{prod.precio}</td>
-                  <td style={{ padding: '12px' }}>
-                    <span style={{ background: 'var(--accent-bg)', color: 'var(--accent)', padding: '3px 8px', borderRadius: '4px', fontSize: '13px', fontWeight: '600' }}>
+                <tr key={prod.id} className="table-tr">
+                  <td className="table-td td-id">{prod.id}</td>
+                  <td className="table-td td-nombre">{prod.nombre}</td>
+                  <td className="table-td td-precio">{prod.precio}</td>
+                  <td className="table-td">
+                    <span className="badge-stock">
                       {prod.stock} uds
                     </span>
                   </td>
-                  {/* Celda para verificar qué imagen tiene asociada */}
-                  <td style={{ padding: '12px', fontSize: '13px', color: '#6b6375', fontStyle: 'italic' }}>
+                  <td className="table-td td-imagen">
                     📁 {prod.imagenName}
                   </td>
                 </tr>

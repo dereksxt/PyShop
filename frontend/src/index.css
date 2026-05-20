@@ -113,3 +113,211 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+/* =====================
+   🎯 NAVBAR
+   ===================== */
+.main-navbar {
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  box-sizing: border-box;
+  box-shadow: var(--shadow);
+  margin-bottom: 30px;
+}
+
+.navbar-brand {
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  color: var(--text-h);
+  margin-right: 12px;
+}
+
+.navbar-link {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: color 0.2s, transform 0.1s;
+}
+
+.navbar-link:hover {
+  color: var(--accent);
+}
+
+.navbar-link-login {
+  margin-left: auto;
+  background-color: var(--accent-bg);
+  color: var(--accent);
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--accent-border);
+}
+
+.navbar-link-login:hover {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+/* =============================
+   📊 PANEL DE ADMINISTRACIÓN
+   ============================= */
+.admin-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+  font-family: var(--sans);
+}
+
+.admin-title {
+  font-size: 32px;
+  margin: 20px 0;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 10px;
+}
+
+.admin-layout {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Tarjetas (Formulario e Inventario) */
+.admin-card-left {
+  flex: 1;
+  min-width: 300px;
+  background-color: var(--bg);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  height: fit-content;
+}
+
+.admin-card-right {
+  flex: 2;
+  min-width: 400px;
+  background-color: var(--bg);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.card-title {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: var(--text-h);
+}
+
+/* Formulario e Inputs */
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.form-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  box-sizing: border-box;
+  background-color: var(--bg);
+  color: var(--text-h);
+}
+
+.form-input-file {
+  width: 100%;
+  padding: 8px;
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  box-sizing: border-box;
+  background: var(--code-bg);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.btn-submit {
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: opacity 0.2s;
+}
+
+.btn-submit:hover {
+  opacity: 0.9;
+}
+
+/* Tabla de Inventario */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table-header-row {
+  background: var(--code-bg);
+  border-bottom: 2px solid var(--border);
+}
+
+.table-th {
+  padding: 10px;
+  color: var(--text-h);
+}
+
+.table-tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.table-td {
+  padding: 12px;
+  color: var(--text);
+}
+
+.td-id {
+  font-family: var(--mono);
+  font-size: 14px;
+}
+
+.td-nombre {
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+.td-precio {
+  color: #10b981; /* Verde esmeralda estándar más moderno */
+  font-weight: bold;
+}
+
+.badge-stock {
+  background: var(--accent-bg);
+  color: var(--accent);
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.td-imagen {
+  font-size: 13px;
+  color: var(--text);
+  font-style: italic;
+}

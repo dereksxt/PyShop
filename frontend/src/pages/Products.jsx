@@ -34,7 +34,8 @@ export default function Products() {
       <nav className="bg-white shadow px-6 py-4 flex justify-between items-center">
         <h1 className="text-xl font-bold text-blue-600">MonlauShop</h1>
         <div className="flex gap-4">
-          <button onClick={() => navigate('/cart')} className="text-gray-600 hover:text-blue-600">🛒 Carrito</button>
+          <button onClick={() => navigate('/cart')} className="text-gray-600 hover:text-blue-600">Carrito</button>
+            <button onClick={() => navigate('/orders')} className="text-gray-600 hover:text-blue-600">Mis pedidos</button>
           {token
             ? <button onClick={logout} className="text-gray-600 hover:text-red-500">Cerrar sesión</button>
             : <button onClick={() => navigate('/login')} className="text-gray-600 hover:text-blue-600">Iniciar sesión</button>
